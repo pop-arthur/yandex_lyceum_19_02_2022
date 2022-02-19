@@ -30,5 +30,15 @@ def list_prof(list_type):
     return render_template("list_prof.html", title="Список профессий", list_prof=data, list_type=list_type)
 
 
+@app.route('/answer')
+@app.route('/auto_answer')
+def answer():
+    data = {'title': 'Автоматический ответ', 'surname': 'Watny', 'name': 'Mark', 'education': 'выше среднего',
+            'profession': ' штурман марсохода', 'sex': 'make', 'motivation': 'Всегда мечтал застрять на Марсе!',
+            'ready': 'True'}
+
+    return render_template("auto_answer.html", **data)
+
+
 if __name__ == '__main__':
     app.run(port=8080, host='127.0.0.1')
